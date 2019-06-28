@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Cocktail } from '../cocktail';
 
 @Component({
   selector: 'app-cocktails-list',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cocktails-list.component.sass']
 })
 export class CocktailsListComponent implements OnInit {
-
+  
+  @Input() public cocktails:Cocktail;
+  
   constructor() { }
 
   ngOnInit() {
