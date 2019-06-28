@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Cocktail } from '../cocktail';
 
 @Component({
@@ -7,7 +7,7 @@ import { Cocktail } from '../cocktail';
   styleUrls: ['./cocktail-detail.component.sass']
 })
 export class CocktailDetailComponent implements OnInit {
-  public cocktail: Cocktail = new Cocktail("Mojito", "http://bigoven-res.cloudinary.com/image/upload/mojito-11.jpg", "The Mojito, from Cuba, is traditional, minty & refreshing. Perfect for a spring or summer meal; pairs well with grilled food and outdoor settings.");
+  @Input() public currentCocktail: Cocktail;
 
   constructor() { }
 

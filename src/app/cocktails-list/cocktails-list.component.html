@@ -1,6 +1,6 @@
 <div class="row px-3 mb-3">
     <div class="list-group col-12 p-0">
-        <a href="" class="list-group-item list-group-item-action" *ngFor="let cocktail of cocktails">{{ cocktail.name }}</a>
+        <a href="" class="list-group-item list-group-item-action" *ngFor="let cocktail of cocktails" (click)="changeCocktail($event, cocktail)">{{ cocktail.name }} </a>
     </div>
 </div>
 <div class="row px-3">
