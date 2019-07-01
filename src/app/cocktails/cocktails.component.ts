@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cocktail } from '../shared/cocktail.model';
+import { Cocktail } from '../shared/models/cocktail.model';
 
 @Component({
   selector: 'app-cocktails',
@@ -16,13 +16,14 @@ export class CocktailsComponent implements OnInit {
     new Cocktail("Bloody Mary", "https://cdn.liquor.com/wp-content/uploads/2017/09/01105541/classic-bloody-mary-720x720-recipe.jpg", "A Bloody Mary is a cocktail containing vodka, tomato juice, and combinations of other spices and flavorings including Worcestershire sauce, hot sauces, garlic, herbs, horseradish, celery, olives, salt, black pepper, lemon juice, lime juice and/or celery salt."),
   ];
 
-  public currentCocktail: Cocktail = this.cocktails[0];
-
-  changeCocktail(cocktail: Cocktail){
-    this.currentCocktail = cocktail;
+  public currentCocktail: Cocktail;
+  
+  changeCocktail(index: number): void {
+    this.currentCocktail = this.cocktails[index];
   }
-
+  
   ngOnInit() {
+    this.currentCocktail = this.cocktails[0];
   }
 
 }

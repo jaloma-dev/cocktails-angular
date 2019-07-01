@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Cocktail } from '../../shared/cocktail.model';
+import { Cocktail } from '../../shared/models/cocktail.model';
 
 @Component({
   selector: 'app-cocktails-list',
@@ -11,11 +11,14 @@ export class CocktailsListComponent implements OnInit {
   @Input() public cocktails:Cocktail[];
   @Output() public changeC: EventEmitter<Cocktail> =  new EventEmitter<Cocktail>();
 
+  public activeCocktail: number = 0;
+
   constructor() { }
 
-  changeCocktail(event, cocktail){
+  changeCocktail(event, index): void{
     event.preventDefault();
-    this.changeC.emit(cocktail);
+    this.activeCocktail = index;
+    this.changeC.emit(index);
   }
 
   ngOnInit() {
