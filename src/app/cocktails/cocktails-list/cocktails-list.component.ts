@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Cocktail } from '../../shared/models/cocktail.model';
+import { CocktailService } from 'src/app/shared/services/cocktail.service';
 
 @Component({
   selector: 'app-cocktails-list',
@@ -7,21 +8,22 @@ import { Cocktail } from '../../shared/models/cocktail.model';
   styleUrls: ['./cocktails-list.component.sass']
 })
 export class CocktailsListComponent implements OnInit {
-  
-  @Input() public cocktails:Cocktail[];
-  @Output() public changeC: EventEmitter<Cocktail> =  new EventEmitter<Cocktail>();
 
+  public cocktails: Cocktail[];
   public activeCocktail: number = 0;
 
-  constructor() { }
-
-  changeCocktail(event, index): void{
-    event.preventDefault();
-    this.activeCocktail = index;
-    this.changeC.emit(index);
-  }
+  constructor(private cocktailService: CocktailService) { }
 
   ngOnInit() {
+    this.cocktailService.cocktails.subscribe( (cocktails: Cocktail[]) => {
+      this.cocktails = cocktails;
+    })
   }
+
+  pickCocktail(index: number): void{
+    this.activeCocktail = index;
+    this.cocktailService.selectCocktail(index);
+  }
+
 
 }

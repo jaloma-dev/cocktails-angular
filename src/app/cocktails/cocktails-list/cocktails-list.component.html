@@ -1,11 +1,11 @@
 <div class="row px-3 mb-3">
     <div class="list-group col-12 p-0">
         <a 
-            href=""
+            href="#"
             [appActive]="index === activeCocktail"
             class="list-group-item list-group-item-action" 
             *ngFor="let cocktail of cocktails; let index = index" 
-            (click)="changeCocktail($event, index)">{{ cocktail.name }} </a>
+            (click)="pickCocktail(index)">{{ cocktail.name }} </a>
     </div>
 </div>
 <div class="row px-3">
