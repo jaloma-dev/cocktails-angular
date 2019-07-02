@@ -10,7 +10,20 @@
         {{cocktail.description}}
     </p>
 </div>
+<div class="row">
+    <ul class="list-group col mx-5 mb-5">
+        <li *ngFor="let ingredient of cocktail.ingredients" class="list-group-item list-group-item-action d-flex justify-content-between">
+            <span>{{ingredient.name}}</span>
+            <span class="badge badge-secondary badge-pill">{{ingredient.quantity}}oz</span>
+        </li>
+    </ul>
+</div>
 
 <div class="row">
-    <button class="btn btn-info">Editer le cocktail</button>
+    <div class="col">
+        <button class="btn btn-info">Editer le cocktail</button>
+    </div>
+    <div class="col">
+        <button class="btn btn-outline-secondary ml-auto" (click)="addToCard()"> Ajouter au panier</button>
+    </div>
 </div>

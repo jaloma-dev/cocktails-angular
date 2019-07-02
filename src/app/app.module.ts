@@ -8,6 +8,9 @@ import { CocktailsListComponent } from './cocktails/cocktails-list/cocktails-lis
 import { CocktailDetailComponent } from './cocktails/cocktail-detail/cocktail-detail.component';
 import { CocktailsComponent } from './cocktails/cocktails.component';
 import { ActiveDirective } from './shared/directives/active.directive';
+import { PanierComponent } from './panier/panier.component';
+import { IngredientsListComponent } from './panier/ingredients-list/ingredients-list.component';
+import { PanierService } from './shared/services/panier.service';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,14 @@ import { ActiveDirective } from './shared/directives/active.directive';
     CocktailDetailComponent,
     CocktailsComponent,
     ActiveDirective,
+    PanierComponent,
+    IngredientsListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PanierService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
