@@ -11,6 +11,7 @@ import { ActiveDirective } from './shared/directives/active.directive';
 import { PanierComponent } from './panier/panier.component';
 import { IngredientsListComponent } from './panier/ingredients-list/ingredients-list.component';
 import { PanierService } from './shared/services/panier.service';
+import { CocktailEditComponent } from './cocktails/cocktail-edit/cocktail-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PanierService } from './shared/services/panier.service';
     ActiveDirective,
     PanierComponent,
     IngredientsListComponent,
+    CocktailEditComponent,
   ],
   imports: [
     BrowserModule,
