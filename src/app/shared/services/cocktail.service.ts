@@ -54,4 +54,28 @@ export class CocktailService {
   getCocktail(index: number) :Cocktail{
     return this.cocktails.value[index];
   }
+
+  addCocktail(cocktail: Cocktail): void{
+    const cocktails = this.cocktails.value.slice();
+
+    cocktails.push(
+        new Cocktail(
+            cocktail.name,
+            cocktail.image,
+            cocktail.description,
+            cocktail.ingredients.map(
+                ingredient => new Ingredient(ingredient.name, ingredient.quantity)
+            )
+        )
+    )
+
+    this.cocktails.next(cocktails);
+  }
+
+  editCocktail(editCocktail: Cocktail): void {
+      const cocktails = this.cocktails.value.slice();
+      const index = cocktails.findIndex(c => c.name === editCocktail.name);
+      cocktails[index] = editCocktail;
+      this.cocktails.next(cocktails);
+  }
 }

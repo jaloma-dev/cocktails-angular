@@ -1,1 +1,40 @@
-<p>cocktail-edit works!</p>
+<h1>Ajouter un cocktail</h1>
+<hr class="bg-primary">
+<form [formGroup]="cocktailForm" (ngSubmit)="addCocktail()">
+    <div class="form-group">
+        <label for="">Nom</label>
+        <input formControlName="name" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="">Image</label>
+        <input formControlName="image" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="">Description</label>
+        <textarea formControlName="description" class="form-control"></textarea>
+    </div>
+    <div class="form-group" formArrayName="ingredients">
+        <div class="clearfix mb-3">
+            <label>Ingredients</label>
+            <button type="button" class="btn btn-info float-right" (click)="addIngredient()">Ajouter</button>
+        </div>
+        <div [formGroup]="ingredient" *ngFor="let ingredient of cocktailForm.get('ingredients')['controls'];let i = index;" class="form-group">
+            <div class="row">
+                <div class="col-7">
+                    <input placeholder="Nom" formControlName="name" type="text" class="form-control">
+                </div>
+                <div class="col-3">
+                    <input placeholder="Quantité" formControlName="quantity" type="number" class="form-control">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-danger" type="button" (click)="removeIngredient(i)">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="form-group clearfix">
+        <button class="btn btn-outline-warning mr-3 mb-3" [routerLink]="['../']" >Annuler</button>
+        <button [disabled]="cocktailForm.invalid" class="btn btn-success mb-3">Sauvegarder</button>
+    </div>
+</form>

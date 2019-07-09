@@ -9,9 +9,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'cocktails', pathMatch: 'full' },
   { path: 'panier', component: PanierComponent },
   { path: 'cocktails', component: CocktailsComponent, children: [
+    { path: 'new', component: CocktailEditComponent },
     { path: ':index', component: CocktailDetailComponent },
     { path: ':index/edit', component: CocktailEditComponent },
-    { path: 'new', component: CocktailEditComponent },
     { path: '', component: CocktailDetailComponent },
   ]},
 ];
