@@ -24,8 +24,10 @@ export class CocktailEditComponent implements OnInit {
     ngOnInit() {
         this.activatedRoute.params.subscribe(( params: Params) => {
             if(params.index){
-                this.cocktail = this.cocktailService.getCocktail(params.index);
-                this.initForm(this.cocktail);
+                this.cocktailService.getCocktail(params.index).subscribe( (cocktail:Cocktail) => {
+                    this.cocktail = cocktail;
+                    this.initForm(this.cocktail);
+                });
                 this.edit = true;
             } else {
                 this.initForm();

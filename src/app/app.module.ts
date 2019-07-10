@@ -14,6 +14,7 @@ import { IngredientsListComponent } from './panier/ingredients-list/ingredients-
 import { PanierService } from './shared/services/panier.service';
 import { CocktailEditComponent } from './cocktails/cocktail-edit/cocktail-edit.component';
 import { FilterCocktailPipe } from './shared/filters/filter-cocktail.pipe';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FilterCocktailPipe } from './shared/filters/filter-cocktail.pipe';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [PanierService],
   bootstrap: [AppComponent]
