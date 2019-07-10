@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Cocktail } from '../../shared/models/cocktail.model';
 import { CocktailService } from 'src/app/shared/services/cocktail.service';
 import { PanierService } from 'src/app/shared/services/panier.service';
-import { Ingredient } from 'src/app/shared/models/ingredient.model';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -12,32 +11,33 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class CocktailDetailComponent implements OnInit {
 
-  public cocktail: Cocktail;
-  public index: number;
 
-  constructor(
-    private cocktailService: CocktailService,
-    private activatedRoute: ActivatedRoute,
-    private panierService: PanierService,
-  ) { }
+    public cocktail: Cocktail;
+    public index: number;
 
-  ngOnInit() {
-    this.activatedRoute.params.subscribe( (params: Params) => {
-      if(params.index){
-        this.index = params.index;
-      } else {
-        this.index = 0;
-      }
-      this.cocktail = this.cocktailService.getCocktail(this.index);
-    })
-  }
+    constructor(
+        private cocktailService: CocktailService,
+        private activatedRoute: ActivatedRoute,
+        private panierService: PanierService,
+    ) { }
 
-  addToCard() :void{
-    this.panierService.addIngredients(this.cocktail.ingredients);
-  }
+    ngOnInit() {
+        this.activatedRoute.params.subscribe( (params: Params) => {
+        if(params.index){
+            this.index = params.index;
+        } else {
+            this.index = 0;
+        }
+        this.cocktail = this.cocktailService.getCocktail(this.index);
+        })
+    }
 
-  getUrl() :string[]{
-    return ['/cocktails', this.index + '', 'edit']
-  }
+    addToCard() :void{
+        this.panierService.addIngredients(this.cocktail.ingredients);
+    }
+
+    getUrl() :string[]{
+        return ['/cocktails', this.index + '', 'edit']
+    }
 
 }

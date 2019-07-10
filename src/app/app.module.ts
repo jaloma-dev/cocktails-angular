@@ -13,6 +13,7 @@ import { PanierComponent } from './panier/panier.component';
 import { IngredientsListComponent } from './panier/ingredients-list/ingredients-list.component';
 import { PanierService } from './shared/services/panier.service';
 import { CocktailEditComponent } from './cocktails/cocktail-edit/cocktail-edit.component';
+import { FilterCocktailPipe } from './shared/filters/filter-cocktail.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CocktailEditComponent } from './cocktails/cocktail-edit/cocktail-edit.c
     PanierComponent,
     IngredientsListComponent,
     CocktailEditComponent,
+    FilterCocktailPipe
   ],
   imports: [
     BrowserModule,
