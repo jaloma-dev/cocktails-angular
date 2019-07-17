@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PanierComponent } from './panier/panier.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'cocktails', pathMatch: 'full' },
-  { path: 'panier', component: PanierComponent },
+  { path: 'panier', loadChildren: 'src/app/panier/panier.module#PanierModule' }
 ];
 
 @NgModule({
